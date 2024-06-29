@@ -1,0 +1,11 @@
+﻿@model OnlineShop.Common.Models.CategoryModels.CreateCategoryModel
+
+<form method="post" asp-action="AddCategory">
+    <label>Name</label>
+    <input type="text" asp-for="Name"></input>
+    <br/>
+    <label>Description</label>
+    <input type="text" asp-for="Description"></input>
+    <br/>
+    <button class="btn btn-success" type="submit">Add Category</button>
+</form>

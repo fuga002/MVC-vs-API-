@@ -1,0 +1,43 @@
+﻿@model List<OnlineShop.Common.DTOS.ProductDto>
+
+<table>
+    <tr>
+        <th>ProductId</th>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Count</th>
+        <th>CategoryId</th>
+    </tr>
+
+    @foreach (var category in Model)
+    {
+        <tr>
+            <td>@category.Id</td>
+            <td>@category.Name</td>
+            <td>@category.Description</td>
+            <td>@category.Price.ToString("C")</td>
+            <td>@category.Count.ToString()</td>
+            <td>@category.CategoryId</td>
+        </tr>
+    }
+</table>
+
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
