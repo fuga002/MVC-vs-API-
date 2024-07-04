@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Data.Repositories;
+using OnlineShop.Services.Extensions;
 using OnlineShop.Services.Services;
 using DbContext = OnlineShop.Data.Context.DbContext;
 
@@ -7,15 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddServices();
 builder.Services.AddDbContext<DbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("OnlineShopDbContext"));
 });
-
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped<CategoryService>();
-builder.Services.AddScoped<ProductService>();   
+ 
 
 var app = builder.Build();
 
